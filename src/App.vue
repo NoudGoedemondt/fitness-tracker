@@ -1,18 +1,16 @@
 <template>
   <the-header></the-header>
   <h3>My List</h3>
-  <div>
-    <ul>
-      <base-list-item>
-        <h3>Item 1</h3>
-        <p>This is the first item.</p>
-      </base-list-item>
-      <base-list-item>
-        <h3>Item 2</h3>
-        <p>This is the second item.</p>
-      </base-list-item>
-    </ul>
-  </div>
+  <ul>
+    <base-list-item>
+      <h3>Item 1</h3>
+      <p>This is the first item.</p>
+    </base-list-item>
+    <base-list-item>
+      <h3>Item 2</h3>
+      <p>This is the second item.</p>
+    </base-list-item>
+  </ul>
 </template>
 
 <script>
@@ -33,6 +31,19 @@ body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
   color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
   margin: 0;
   padding: 0;
 }
