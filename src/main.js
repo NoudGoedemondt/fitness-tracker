@@ -1,4 +1,9 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import BaseListItem from './components/base/BaseListItem.vue';
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+app.component('base-list-item', BaseListItem);
+
+app.mount('#app');

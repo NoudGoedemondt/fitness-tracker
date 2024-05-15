@@ -1,33 +1,43 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
-  <input type="text" v-model="reactiveData" />
-  <p>{{ reactiveData }}</p>
+  <the-header></the-header>
+  <h3>My List</h3>
+  <div>
+    <ul>
+      <base-list-item>
+        <h3>Item 1</h3>
+        <p>This is the first item.</p>
+      </base-list-item>
+      <base-list-item>
+        <h3>Item 2</h3>
+        <p>This is the second item.</p>
+      </base-list-item>
+    </ul>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import TheHeader from './components/UI/TheHeader.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld,
+    TheHeader,
   },
   data() {
-    return {
-      reactiveData: '',
-    };
+    return {};
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
 }
 </style>
