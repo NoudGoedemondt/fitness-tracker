@@ -1,16 +1,17 @@
 <template>
-  <the-header></the-header>
-  <calendar-list></calendar-list>
+  <div class="app">
+    <div class="calendar-container">
+      <calendar-month />
+    </div>
+  </div>
 </template>
 
 <script>
-import TheHeader from './components/UI/TheHeader.vue';
-import CalendarList from './components/calendar/CalendarList.vue';
+import CalendarMonth from './components/calendar/CalendarMonth.vue';
 
 export default {
   components: {
-    TheHeader,
-    CalendarList,
+    CalendarMonth,
   },
   data() {
     return {};
@@ -19,17 +20,34 @@ export default {
 </script>
 
 <style>
-body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  color: #333;
-  margin: 0;
-  padding: 0;
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 
-ul {
-  margin: 0;
+body {
+  font-family: sans-serif;
+  font-weight: 100;
+  --grey-100: #e4e9f0;
+  --grey-200: #cfd7e3;
+  --grey-300: #b5c0cd;
+  --grey-800: #3e4e63;
+  --grid-gap: 1px;
+  --day-label-size: 20px;
+}
+
+ol,
+li {
   padding: 0;
+  margin: 0;
   list-style: none;
+}
+
+.calendar-container {
+  width: 50vw;
 }
 </style>
