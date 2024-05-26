@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <div class="calendar-container">
-      <calendar-month />
+      <calendar-month @date-selected="printDate" />
     </div>
   </div>
 </template>
@@ -15,6 +15,11 @@ export default {
   },
   data() {
     return {};
+  },
+  methods: {
+    printDate(date) {
+      console.log(date);
+    },
   },
 };
 </script>

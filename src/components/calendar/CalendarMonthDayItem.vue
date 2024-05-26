@@ -1,5 +1,6 @@
 <template>
   <li
+    @click="$emit('dateSelected', this.day)"
     class="calendar-day"
     :class="{
       'calendar-day--not-current': !day.isCurrentMonth,

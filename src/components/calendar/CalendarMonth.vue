@@ -21,6 +21,7 @@
         :key="day.date"
         :day="day"
         :is-today="day.date === today"
+        @date-selected="$emit('dateSelected', $event)"
       />
     </ol>
   </div>
@@ -147,6 +148,9 @@ export default {
   },
 
   methods: {
+    testDate(date) {
+      console.log(date);
+    },
     getWeekday(date) {
       return dayjs(date).weekday();
     },
