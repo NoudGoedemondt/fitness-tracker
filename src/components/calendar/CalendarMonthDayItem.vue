@@ -1,10 +1,11 @@
 <template>
   <li
-    @click="$emit('dateSelected', this.day)"
+    @click="setSelectedDate"
     class="calendar-day"
     :class="{
       'calendar-day--not-current': !day.isCurrentMonth,
       'calendar-day--today': isToday,
+      'calendar-day--selected': isSelected,
     }"
   >
     <span>{{ label }}</span>
@@ -16,6 +17,8 @@ import dayjs from 'dayjs';
 
 export default {
   name: 'CalendarMonthDayItem',
+
+  inject: ['selectedDate'],
 
   props: {
     day: {
@@ -37,6 +40,16 @@ export default {
   computed: {
     label() {
       return dayjs(this.day.date).format('D');
+    },
+
+    isSelected() {
+      return this.selectedDate.date === this.day.date;
+    },
+  },
+
+  methods: {
+    setSelectedDate() {
+      this.$emit('dateSelected', this.day.date);
     },
   },
 };
@@ -75,5 +88,9 @@ export default {
   color: #fff;
   border-radius: 9999px;
   background-color: var(--grey-800);
+}
+
+.calendar-day--selected {
+  background-color: lightblue;
 }
 </style>

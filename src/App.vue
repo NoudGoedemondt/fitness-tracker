@@ -1,24 +1,40 @@
 <template>
   <div class="app">
-    <div class="calendar-container">
-      <calendar-month @date-selected="printDate" />
+    <div class="container">
+      <calendar-month @date-selected="setSelectedDate" />
+    </div>
+    <div class="container">
+      <h3>Selected date: {{ selectedDate.date }}</h3>
     </div>
   </div>
 </template>
 
 <script>
+import dayjs from 'dayjs';
 import CalendarMonth from './components/calendar/CalendarMonth.vue';
 
 export default {
   components: {
     CalendarMonth,
   },
+
   data() {
-    return {};
+    return {
+      selectedDate: {
+        date: dayjs().format('YYYY-MM-DD'),
+      },
+    };
   },
+
+  provide() {
+    return {
+      selectedDate: this.selectedDate,
+    };
+  },
+
   methods: {
-    printDate(date) {
-      console.log(date);
+    setSelectedDate(date) {
+      this.selectedDate.date = date;
     },
   },
 };
@@ -52,7 +68,7 @@ li {
   list-style: none;
 }
 
-.calendar-container {
-  width: 50vw;
+.container {
+  width: 100vw;
 }
 </style>

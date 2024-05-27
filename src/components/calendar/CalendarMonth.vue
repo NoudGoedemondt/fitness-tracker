@@ -148,9 +148,6 @@ export default {
   },
 
   methods: {
-    testDate(date) {
-      console.log(date);
-    },
     getWeekday(date) {
       return dayjs(date).weekday();
     },
