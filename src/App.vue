@@ -4,7 +4,7 @@
       <calendar-month @date-selected="setSelectedDate" />
     </div>
     <div class="container">
-      <h3>Selected date: {{ selectedDate.date }}</h3>
+      <add-workout />
     </div>
   </div>
 </template>
@@ -12,10 +12,12 @@
 <script>
 import dayjs from 'dayjs';
 import CalendarMonth from './components/calendar/CalendarMonth.vue';
+import AddWorkout from './components/wo-manager/AddWorkout.vue';
 
 export default {
   components: {
     CalendarMonth,
+    AddWorkout,
   },
 
   data() {
@@ -23,6 +25,7 @@ export default {
       selectedDate: {
         date: dayjs().format('YYYY-MM-DD'),
       },
+      loggedWorkouts: [],
     };
   },
 
@@ -46,8 +49,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 
 body {
@@ -69,6 +70,6 @@ li {
 }
 
 .container {
-  width: 100vw;
+  margin: 1rem;
 }
 </style>

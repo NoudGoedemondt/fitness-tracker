@@ -21,7 +21,7 @@
         :key="day.date"
         :day="day"
         :is-today="day.date === today"
-        @date-selected="$emit('dateSelected', $event)"
+        @click="$emit('dateSelected', day.date)"
       />
     </ol>
   </div>

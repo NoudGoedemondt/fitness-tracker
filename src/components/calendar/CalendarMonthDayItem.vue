@@ -1,6 +1,5 @@
 <template>
   <li
-    @click="setSelectedDate"
     class="calendar-day"
     :class="{
       'calendar-day--not-current': !day.isCurrentMonth,
@@ -44,12 +43,6 @@ export default {
 
     isSelected() {
       return this.selectedDate.date === this.day.date;
-    },
-  },
-
-  methods: {
-    setSelectedDate() {
-      this.$emit('dateSelected', this.day.date);
     },
   },
 };
