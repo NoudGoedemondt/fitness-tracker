@@ -195,8 +195,8 @@ export default {
 .days-grid {
   height: 100%;
   position: relative;
-  grid-column-gap: var(--grid-gap);
-  grid-row-gap: var(--grid-gap);
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
   border-top: solid 1px var(--grey-200);
 }
 </style>

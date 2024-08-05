@@ -64,8 +64,8 @@ export default {
   align-items: center;
   position: absolute;
   right: 2px;
-  width: var(--day-label-size);
-  height: var(--day-label-size);
+  width: 20px;
+  height: 20px;
 }
 
 .calendar-day--not-current {
