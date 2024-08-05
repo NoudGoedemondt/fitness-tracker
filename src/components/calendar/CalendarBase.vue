@@ -4,7 +4,7 @@
       {{ currentDate }}
     </div>
 
-    <week-days />
+    <calendar-weekdays />
 
     <div class="days-grid">
       <div class="item" v-for="day in currentMonthDays" :key="day">
@@ -22,7 +22,7 @@
 <script setup>
 import { computed } from 'vue';
 import dayjs from 'dayjs';
-import WeekDays from './WeekDays.vue';
+import CalendarWeekdays from './CalendarWeekdays.vue';
 
 const currentDate = computed(() => dayjs().format('DD-MM-YYYY'));
 
