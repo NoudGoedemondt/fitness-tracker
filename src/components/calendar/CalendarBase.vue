@@ -7,7 +7,7 @@
     <calendar-weekdays />
 
     <ol class="days-grid">
-      <div v-for="n in emptyDays" :key="n"></div>
+      <li v-for="n in emptyDays" :key="n"></li>
       <calendar-day-item v-for="day in days" :key="day" :day="day" />
     </ol>
   </div>
