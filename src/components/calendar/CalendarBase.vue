@@ -46,6 +46,10 @@ console.log(days.value);
 </script>
 
 <style scoped>
+.header h2 {
+  margin: 0 0 1rem;
+}
+
 .calendar {
   max-width: 960px;
   margin: 50px auto;

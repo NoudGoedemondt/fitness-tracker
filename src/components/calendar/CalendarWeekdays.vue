@@ -12,5 +12,7 @@ const weekdays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 .weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin: 1rem 0;
 }
 </style>
