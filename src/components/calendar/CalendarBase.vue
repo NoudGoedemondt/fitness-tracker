@@ -1,7 +1,7 @@
 <template>
   <div class="calendar">
     <div class="header">
-      <h2>{{ fullMonthName }}</h2>
+      <h2>{{ fullMonthYear }}</h2>
     </div>
 
     <calendar-weekdays />
@@ -28,7 +28,9 @@ const year = computed(() => dayjs(selectedDate.value).format('YYYY'));
 
 const month = computed(() => dayjs(selectedDate.value).format('MM'));
 
-const fullMonthName = computed(() => dayjs(selectedDate.value).format('MMMM'));
+const fullMonthYear = computed(() =>
+  dayjs(selectedDate.value).format('MMMM YYYY')
+);
 
 const numberOfDaysInMonth = computed(() =>
   dayjs(selectedDate.value).daysInMonth()
