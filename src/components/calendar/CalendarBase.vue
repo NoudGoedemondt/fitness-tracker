@@ -1,44 +1,56 @@
 <template>
   <div class="calendar">
-    <div class="controls">
-      {{ currentDate }}
+    <div class="header">
+      <h2>{{ fullMonthName }}</h2>
     </div>
 
     <calendar-weekdays />
 
     <ol class="days-grid">
-      <calendar-day-item
-        v-for="day in currentMonthDays"
-        :key="day"
-        :day="day"
-      />
+      <div v-for="n in emptyDays" :key="n"></div>
+      <calendar-day-item v-for="day in days" :key="day" :day="day" />
     </ol>
   </div>
-
-  <h1>{{ now }}</h1>
-  <h1>{{ currentMonthDays }}</h1>
-  <h1>{{ previousMonthDays }}</h1>
-  <h1>{{ nextMonthDays }}</h1>
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { ref, computed } from 'vue';
 import dayjs from 'dayjs';
+import weekday from 'dayjs/plugin/weekday';
 import CalendarWeekdays from './CalendarWeekdays.vue';
 import CalendarDayItem from './CalendarDayItem.vue';
 
-const currentDate = computed(() => dayjs().format('DD-MM-YYYY'));
+dayjs.extend(weekday);
 
-const now = dayjs();
-const currentMonthDays = dayjs(now).daysInMonth();
-const previousMonthDays = dayjs(now).subtract(1, 'month').daysInMonth();
-const nextMonthDays = dayjs(now).add(1, 'month').daysInMonth();
+const selectedDate = ref(dayjs());
+
+const year = computed(() => dayjs(selectedDate.value).format('YYYY'));
+
+const month = computed(() => dayjs(selectedDate.value).format('MM'));
+
+const fullMonthName = computed(() => dayjs(selectedDate.value).format('MMMM'));
+
+const numberOfDaysInMonth = computed(() =>
+  dayjs(selectedDate.value).daysInMonth()
+);
+
+const days = computed(() =>
+  [...Array(numberOfDaysInMonth.value)].map(
+    (_, index) => `${year.value}-${month.value}-${index + 1}`
+  )
+);
+
+const emptyDays = computed(() => dayjs(selectedDate.value).weekday());
+
+console.log(days.value);
 </script>
 
 <style scoped>
 .calendar {
   max-width: 960px;
   margin: 50px auto;
+  padding: 1rem;
+  border: 1px solid var(--grey-300);
 }
 
 .days-grid {
