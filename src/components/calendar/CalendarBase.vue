@@ -16,13 +16,10 @@
 <script setup>
 import { ref, computed } from 'vue';
 import dayjs from 'dayjs';
-import weekday from 'dayjs/plugin/weekday';
 import CalendarWeekdays from './CalendarWeekdays.vue';
 import CalendarDayItem from './CalendarDayItem.vue';
 
-dayjs.extend(weekday);
-
-const selectedDate = ref(dayjs());
+const selectedDate = ref(dayjs().add(3, 'day'));
 
 const year = computed(() => dayjs(selectedDate.value).format('YYYY'));
 
@@ -42,13 +39,19 @@ const days = computed(() =>
   )
 );
 
-const emptyDays = computed(() => dayjs(selectedDate.value).weekday());
+const emptyDays = computed(() => {
+  const selectedDateCurrentMonthWeekday = dayjs(selectedDate.value)
+    .startOf('month')
+    .day();
+  return selectedDateCurrentMonthWeekday - 1;
+});
 
 console.log(days.value);
 </script>
 
 <style scoped>
 .header h2 {
+  text-align: center;
   margin: 0 0 1rem;
 }
 
@@ -57,6 +60,7 @@ console.log(days.value);
   margin: 50px auto;
   padding: 1rem;
   border: 1px solid var(--grey-300);
+  border-radius: 12px;
 }
 
 .days-grid {
