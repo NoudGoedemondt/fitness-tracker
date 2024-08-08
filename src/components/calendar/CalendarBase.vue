@@ -2,6 +2,11 @@
   <div class="calendar">
     <div class="header">
       <h2>{{ fullMonthYear }}</h2>
+
+      <calendar-date-controller
+        :currentSelectedDate="selectedDate"
+        @newDateSelected="setNewSelectedDate"
+      />
     </div>
 
     <calendar-weekdays />
@@ -16,18 +21,24 @@
 <script setup>
 import { ref, computed } from 'vue';
 import dayjs from 'dayjs';
+
+import CalendarDateController from './CalendarDateController.vue';
 import CalendarWeekdays from './CalendarWeekdays.vue';
 import CalendarDayItem from './CalendarDayItem.vue';
 
-const now = ref(dayjs());
+const selectedDate = ref(dayjs());
 
-const year = computed(() => dayjs(now.value).format('YYYY'));
+const year = computed(() => Number(dayjs(selectedDate.value).format('YYYY')));
 
-const month = computed(() => dayjs(now.value).format('MM'));
+const month = computed(() => Number(dayjs(selectedDate.value).format('MM')));
 
-const fullMonthYear = computed(() => dayjs(now.value).format('MMMM YYYY'));
+const fullMonthYear = computed(() =>
+  dayjs(selectedDate.value).format('MMMM YYYY')
+);
 
-const numberOfDaysInMonth = computed(() => dayjs(now.value).daysInMonth());
+const numberOfDaysInMonth = computed(() =>
+  dayjs(selectedDate.value).daysInMonth()
+);
 
 const days = computed(() =>
   [...Array(numberOfDaysInMonth.value)].map(
@@ -36,9 +47,15 @@ const days = computed(() =>
 );
 
 const emptyDays = computed(() => {
-  const WeekdayOfCurrentMonth = dayjs(now.value).startOf('month').day();
-  return WeekdayOfCurrentMonth - 1;
+  const WeekdayOfSelectedMonth = dayjs(selectedDate.value)
+    .startOf('month')
+    .day();
+  return WeekdayOfSelectedMonth == 0 ? 6 : WeekdayOfSelectedMonth - 1;
 });
+
+const setNewSelectedDate = (newSelectedDate) => {
+  selectedDate.value = newSelectedDate;
+};
 
 console.log(days.value);
 </script>
