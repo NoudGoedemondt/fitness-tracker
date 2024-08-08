@@ -50,7 +50,7 @@ const emptyDays = computed(() => {
   const WeekdayOfSelectedMonth = dayjs(selectedDate.value)
     .startOf('month')
     .day();
-  return WeekdayOfSelectedMonth == 0 ? 6 : WeekdayOfSelectedMonth - 1;
+  return WeekdayOfSelectedMonth === 0 ? 6 : WeekdayOfSelectedMonth - 1;
 });
 
 const setNewSelectedDate = (newSelectedDate) => {
