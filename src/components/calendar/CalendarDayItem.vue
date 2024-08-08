@@ -1,5 +1,7 @@
 <template>
-  <li class="day">{{ label }}</li>
+  <li class="day">
+    <a>{{ label }}</a>
+  </li>
 </template>
 
 <script setup>
@@ -13,8 +15,6 @@ const label = computed(() => dayjs(props.day).format('D'));
 
 <style scoped>
 .day {
-  /* border: 1px solid var(--grey-300);
-  border-radius: 4px; */
   padding: 1rem;
   text-align: center;
   font-weight: bold;

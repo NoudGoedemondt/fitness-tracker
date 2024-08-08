@@ -7,7 +7,7 @@
     <calendar-weekdays />
 
     <ol class="days-grid">
-      <li v-for="n in emptyDays" :key="n"></li>
+      <li class="empty" v-for="n in emptyDays" :key="n"></li>
       <calendar-day-item v-for="day in days" :key="day" :day="day" />
     </ol>
   </div>
@@ -19,19 +19,15 @@ import dayjs from 'dayjs';
 import CalendarWeekdays from './CalendarWeekdays.vue';
 import CalendarDayItem from './CalendarDayItem.vue';
 
-const selectedDate = ref(dayjs().add(3, 'day'));
+const now = ref(dayjs());
 
-const year = computed(() => dayjs(selectedDate.value).format('YYYY'));
+const year = computed(() => dayjs(now.value).format('YYYY'));
 
-const month = computed(() => dayjs(selectedDate.value).format('MM'));
+const month = computed(() => dayjs(now.value).format('MM'));
 
-const fullMonthYear = computed(() =>
-  dayjs(selectedDate.value).format('MMMM YYYY')
-);
+const fullMonthYear = computed(() => dayjs(now.value).format('MMMM YYYY'));
 
-const numberOfDaysInMonth = computed(() =>
-  dayjs(selectedDate.value).daysInMonth()
-);
+const numberOfDaysInMonth = computed(() => dayjs(now.value).daysInMonth());
 
 const days = computed(() =>
   [...Array(numberOfDaysInMonth.value)].map(
@@ -40,10 +36,8 @@ const days = computed(() =>
 );
 
 const emptyDays = computed(() => {
-  const selectedDateCurrentMonthWeekday = dayjs(selectedDate.value)
-    .startOf('month')
-    .day();
-  return selectedDateCurrentMonthWeekday - 1;
+  const WeekdayOfCurrentMonth = dayjs(now.value).startOf('month').day();
+  return WeekdayOfCurrentMonth - 1;
 });
 
 console.log(days.value);
