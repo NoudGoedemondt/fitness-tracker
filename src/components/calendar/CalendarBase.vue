@@ -13,7 +13,13 @@
 
     <ol class="days-grid">
       <li class="empty" v-for="n in emptyDays" :key="n"></li>
-      <calendar-day-item v-for="day in days" :key="day" :day="day" />
+      <calendar-day-item
+        v-for="day in days"
+        :key="day"
+        :day="day"
+        :activeDate="activeDate"
+        @daySelected="setNewActiveDate"
+      />
     </ol>
   </div>
 </template>
@@ -25,6 +31,8 @@ import dayjs from 'dayjs';
 import CalendarDateController from './CalendarDateController.vue';
 import CalendarWeekdays from './CalendarWeekdays.vue';
 import CalendarDayItem from './CalendarDayItem.vue';
+
+const activeDate = ref(dayjs().format('YYYY-M-D'));
 
 const selectedDate = ref(dayjs());
 
@@ -55,6 +63,10 @@ const emptyDays = computed(() => {
 
 const setNewSelectedDate = (newSelectedDate) => {
   selectedDate.value = newSelectedDate;
+};
+
+const setNewActiveDate = (newActiveDate) => {
+  activeDate.value = newActiveDate;
 };
 </script>
 

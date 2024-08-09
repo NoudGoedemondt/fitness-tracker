@@ -1,6 +1,10 @@
 <template>
   <li class="day">
-    <a @click="selectDay">{{ label }}</a>
+    <a
+      @click="emit('daySelected', props.day)"
+      :class="{ selected: isSelected }"
+      >{{ label }}</a
+    >
     <ul>
       <li></li>
     </ul>
@@ -8,16 +12,15 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from 'vue';
+import { defineProps, defineEmits, computed } from 'vue';
 import dayjs from 'dayjs';
 
-const props = defineProps(['day']);
+const props = defineProps(['day', 'activeDate']);
+const emit = defineEmits(['daySelected']);
 
 const label = computed(() => dayjs(props.day).format('D'));
 
-const selectDay = () => {
-  //console.log(`date: ${props.day} isSelected: ${props.isSelected}`);
-};
+const isSelected = computed(() => props.day === props.activeDate);
 </script>
 
 <style scoped>
@@ -43,6 +46,14 @@ a {
 }
 
 .day:hover a {
+  background-color: var(--grey-100);
+}
+
+a:active {
+  background-color: var(--grey-800);
+}
+
+.selected {
   background-color: var(--grey-100);
 }
 </style>
