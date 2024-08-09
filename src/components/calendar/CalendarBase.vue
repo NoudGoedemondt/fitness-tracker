@@ -56,8 +56,6 @@ const emptyDays = computed(() => {
 const setNewSelectedDate = (newSelectedDate) => {
   selectedDate.value = newSelectedDate;
 };
-
-console.log(days.value);
 </script>
 
 <style scoped>

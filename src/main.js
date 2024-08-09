@@ -1,9 +1,13 @@
 import { createApp } from 'vue';
-import 'normalize.css';
+
 import App from './App.vue';
+import store from './components/store/index.js';
+
 import BaseListItem from './components/base/BaseListItem.vue';
 
 const app = createApp(App);
+
+app.use(store);
 
 app.component('base-list-item', BaseListItem);
 
