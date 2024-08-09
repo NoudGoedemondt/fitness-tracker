@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 
 import App from './App.vue';
-import store from './components/store/index.js';
+import store from './store/index';
 
 import BaseListItem from './components/base/BaseListItem.vue';
 

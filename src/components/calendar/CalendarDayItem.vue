@@ -1,6 +1,6 @@
 <template>
   <li class="day">
-    <a>{{ label }}</a>
+    <a @click="selectDay">{{ label }}</a>
     <ul>
       <li></li>
     </ul>
@@ -14,6 +14,10 @@ import dayjs from 'dayjs';
 const props = defineProps(['day']);
 
 const label = computed(() => dayjs(props.day).format('D'));
+
+const selectDay = () => {
+  //console.log(`date: ${props.day} isSelected: ${props.isSelected}`);
+};
 </script>
 
 <style scoped>

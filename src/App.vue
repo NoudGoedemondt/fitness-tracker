@@ -1,9 +1,11 @@
 <template>
   <calendar-base />
+  <add-workout />
 </template>
 
 <script setup>
 import CalendarBase from './components/calendar/CalendarBase.vue';
+import AddWorkout from './components/wo-manager/AddWorkout.vue';
 </script>
 
 <style>
