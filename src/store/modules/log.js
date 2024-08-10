@@ -1,9 +1,10 @@
 const state = () => ({
+  activeDate: null,
   workoutLogs: [
     {
       logId: 'log1',
       workoutId: 'wo1',
-      date: '2024-08-07',
+      date: '2024-8-7',
       exercises: [
         {
           name: 'Incline DB Press',
