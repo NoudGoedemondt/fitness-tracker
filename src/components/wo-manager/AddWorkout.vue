@@ -1,18 +1,21 @@
 <template>
   <div class="add-wo">
-    <set-input-repeater />
+    <div v-for="(workout, index) in workouts" :key="index">
+      {{ workout.name }}
+    </div>
+    <set-input-repeater exercise="Incline DB Press" />
   </div>
 </template>
 
 <script setup>
-//import { computed } from 'vue';
-///import { useStore } from 'vuex';
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 
 import SetInputRepeater from './SetInputRepeater.vue';
 
-//const store = useStore();
+const store = useStore();
 
-// const workouts = computed(() => store.state.routine.workouts);
+const workouts = computed(() => store.state.routine.workouts);
 </script>
 
 <style scoped>
