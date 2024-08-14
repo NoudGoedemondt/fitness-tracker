@@ -1,14 +1,18 @@
 <template>
-  <div class="add-wo">{{ workouts }}</div>
+  <div class="add-wo">
+    <form-repeater />
+  </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { useStore } from 'vuex';
+//import { computed } from 'vue';
+///import { useStore } from 'vuex';
 
-const store = useStore();
+import FormRepeater from './FormRepeater.vue';
 
-const workouts = computed(() => store.state.routine.workouts);
+//const store = useStore();
+
+// const workouts = computed(() => store.state.routine.workouts);
 </script>
 
 <style scoped>
