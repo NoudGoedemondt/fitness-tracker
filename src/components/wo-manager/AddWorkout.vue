@@ -1,6 +1,6 @@
 <template>
   <div class="add-wo">
-    <form-repeater />
+    <set-input-repeater />
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 //import { computed } from 'vue';
 ///import { useStore } from 'vuex';
 
-import FormRepeater from './FormRepeater.vue';
+import SetInputRepeater from './SetInputRepeater.vue';
 
 //const store = useStore();
 

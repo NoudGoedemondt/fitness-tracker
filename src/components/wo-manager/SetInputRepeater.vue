@@ -1,16 +1,12 @@
 <template>
   <div class="form-repeater">
     <div v-for="(input, index) in inputs" :key="index" class="form-group">
-      <input
-        type="number"
-        v-model="input.reps"
-        :placeholder="'Reps ' + (index + 1)"
-        min="0"
-      />
+      <b>Set {{ index + 1 }}</b>
+      <input type="number" v-model="input.reps" placeholder="Reps" min="0" />
       <input
         type="number"
         v-model="input.weight"
-        :placeholder="'Weight ' + (index + 1) + ' (kg)'"
+        placeholder="Weight (kg)"
         min="0"
       />
       <button type="button" @click="removeInput(index)">Remove</button>
@@ -38,6 +34,10 @@ const removeInput = (index) => {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+}
+
+b {
+  margin-right: 10px;
 }
 
 input[type='number'] {
