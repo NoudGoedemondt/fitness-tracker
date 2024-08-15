@@ -20,10 +20,9 @@ body {
   --grey-200: #cfd7e3;
   --grey-300: #b5c0cd;
   --grey-800: #3e4e63;
-  --event-color-1: #91a6ff;
-  --event-color-2: #ff88dc;
-  --event-color-3: #faff7f;
-  --event-color-4: #ff5154;
+  --event-color-1: #0b3c49;
+  --event-color-2: #731963;
+  --event-color-3: #256d1b;
 }
 
 ol,

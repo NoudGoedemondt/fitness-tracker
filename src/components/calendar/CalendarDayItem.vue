@@ -45,8 +45,9 @@ const workoutsOnDay = computed(() =>
 .event {
   text-align: center;
   background-color: var(--event-color-1);
-  font-weight: bold;
+  color: white;
   margin: 2px;
+  padding: 1px;
   border-radius: 4px;
 }
 
