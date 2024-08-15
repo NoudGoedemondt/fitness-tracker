@@ -20,8 +20,6 @@ import { useStore } from 'vuex';
 
 const store = useStore();
 
-//const activeDate = computed(() => store.state.log.activeDate);
-
 const workoutsOnDay = computed(
   () => store.getters['log/getWorkoutsByActiveDate']
 );
