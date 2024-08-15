@@ -16,11 +16,11 @@ import dayjs from 'dayjs';
 
 const store = useStore();
 
-const props = defineProps(['day', 'activeDate']);
+const props = defineProps(['day']);
 
 const label = computed(() => dayjs(props.day).format('D'));
 
-const isSelected = computed(() => props.day === props.activeDate);
+const isSelected = computed(() => props.day === store.state.log.activeDate);
 
 const workoutsOnDay = computed(() =>
   store.getters['log/getWorkoutsByDate'](props.day)

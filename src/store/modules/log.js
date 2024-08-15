@@ -130,8 +130,22 @@ const getters = {
   },
 };
 
+const actions = {
+  setNewActiveDate({ commit }, newActiveDate) {
+    commit('setActiveDate', newActiveDate);
+  },
+};
+
+const mutations = {
+  setActiveDate(state, newActiveDate) {
+    state.activeDate = newActiveDate;
+  },
+};
+
 export default {
   namespaced: true,
   state,
   getters,
+  actions,
+  mutations,
 };

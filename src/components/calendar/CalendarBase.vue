@@ -17,7 +17,6 @@
         v-for="day in days"
         :key="day"
         :day="day"
-        :activeDate="activeDate"
         @click="setNewActiveDate(day)"
       />
     </ol>
@@ -25,14 +24,15 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
 import dayjs from 'dayjs';
 
 import CalendarDateController from './CalendarDateController.vue';
 import CalendarWeekdays from './CalendarWeekdays.vue';
 import CalendarDayItem from './CalendarDayItem.vue';
 
-const activeDate = ref(dayjs().format('YYYY-M-D'));
+const store = useStore();
 
 const selectedDate = ref(dayjs());
 
@@ -66,8 +66,13 @@ const setNewSelectedDate = (newSelectedDate) => {
 };
 
 const setNewActiveDate = (newActiveDate) => {
-  activeDate.value = newActiveDate;
+  store.dispatch('log/setNewActiveDate', newActiveDate);
 };
+
+onMounted(() => {
+  const currentDate = dayjs().format('YYYY-M-D');
+  setNewActiveDate(currentDate);
+});
 </script>
 
 <style scoped>
