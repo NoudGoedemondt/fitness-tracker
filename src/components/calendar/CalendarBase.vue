@@ -18,7 +18,7 @@
         :key="day"
         :day="day"
         :activeDate="activeDate"
-        @daySelected="setNewActiveDate"
+        @click="setNewActiveDate(day)"
       />
     </ol>
   </div>

@@ -1,9 +1,5 @@
 <template>
-  <li
-    class="day"
-    @click="emit('daySelected', props.day)"
-    :class="{ selected: isSelected }"
-  >
+  <li class="day" :class="{ selected: isSelected }">
     <p>{{ label }}</p>
     <ul>
       <li class="event" v-for="(workout, index) in workoutsOnDay" :key="index">
@@ -14,14 +10,13 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits, computed } from 'vue';
+import { defineProps, computed } from 'vue';
 import { useStore } from 'vuex';
 import dayjs from 'dayjs';
 
 const store = useStore();
 
 const props = defineProps(['day', 'activeDate']);
-const emit = defineEmits(['daySelected']);
 
 const label = computed(() => dayjs(props.day).format('D'));
 
