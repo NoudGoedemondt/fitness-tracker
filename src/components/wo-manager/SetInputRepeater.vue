@@ -2,13 +2,13 @@
   <div class="form-repeater">
     <div v-for="(input, index) in inputs" :key="index" class="form-group">
       <b>Set {{ index + 1 }}</b>
-      <input type="number" v-model="input.reps" placeholder="Reps" min="0" />
       <input
         type="number"
         v-model="input.weight"
         placeholder="Weight (kg)"
         min="0"
       />
+      <input type="number" v-model="input.reps" placeholder="Reps" min="0" />
       <button type="button" @click="removeInput(index)">Remove</button>
     </div>
     <button type="button" @click="addInput">Add Set</button>
