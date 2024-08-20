@@ -1,20 +1,31 @@
 <template>
   <div class="view-wo">
-    <div v-for="(workout, index) in workoutsOnDay" :key="index">
+    <div
+      v-for="(workout, index) in workoutsOnDay"
+      :key="index"
+      class="workout-block"
+    >
       <h3>{{ workout.workoutName }}</h3>
-      <div v-for="(exercise, index) in workout.exercises" :key="index">
-        <h4>Exercise {{ index + 1 }} - {{ exercise.name }}</h4>
-        <ol>
-          <li v-for="(set, index) in exercise.sets" :key="index">
-            {{ set.reps }} x {{ set.weight }}kg
+      <div
+        v-for="(exercise, eIndex) in workout.exercises"
+        :key="eIndex"
+        class="exercise-block"
+      >
+        <h4>Exercise {{ eIndex + 1 }} - {{ exercise.name }}</h4>
+        <ol class="sets-list">
+          <li v-for="(set, sIndex) in exercise.sets" :key="sIndex">
+            Set {{ sIndex + 1 }}: {{ set.reps }} reps × {{ set.weight }} kg
           </li>
         </ol>
       </div>
     </div>
+    <add-workout />
   </div>
 </template>
 
 <script setup>
+import AddWorkout from './AddWorkout.vue';
+
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 
@@ -32,5 +43,23 @@ const workoutsOnDay = computed(
   padding: 1rem;
   border: 1px solid var(--grey-300);
   border-radius: 12px;
+}
+
+.workout-block {
+  margin-bottom: 2rem;
+}
+
+.exercise-block {
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+}
+
+.sets-list {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.sets-list li {
+  margin-bottom: 0.5rem;
 }
 </style>
