@@ -1,6 +1,6 @@
 const state = () => ({
   activeDate: null,
-  workoutLogs: [
+  logs: [
     // Week 1
     {
       logId: 'log1',
@@ -371,10 +371,10 @@ const state = () => ({
 
 const getters = {
   getWorkoutsByDate: (state) => (date) => {
-    return state.workoutLogs.filter((log) => log.date === date);
+    return state.logs.filter((log) => log.date === date);
   },
   getWorkoutsByActiveDate: (state) => {
-    return state.workoutLogs.filter((log) => log.date === state.activeDate);
+    return state.logs.filter((log) => log.date === state.activeDate);
   },
 };
 

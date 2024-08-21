@@ -1,9 +1,9 @@
 <template>
   <div class="add-wo">
-    <div v-for="(workout, index) in workouts" :key="index">
-      {{ workout.name }}
+    <div v-for="(routine, index) in routines" :key="index">
+      {{ routine.name }}
     </div>
-    <set-input-repeater exercise="Incline DB Press" />
+    <set-input-repeater />
   </div>
 </template>
 
@@ -15,7 +15,7 @@ import SetInputRepeater from './SetInputRepeater.vue';
 
 const store = useStore();
 
-const workouts = computed(() => store.state.routine.workouts);
+const routines = computed(() => store.state.routine.routines);
 </script>
 
 <style scoped>

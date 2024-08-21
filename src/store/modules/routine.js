@@ -1,5 +1,5 @@
 const state = () => ({
-  workouts: [
+  routines: [
     {
       id: 'wo1',
       name: 'Push',
