@@ -19,13 +19,10 @@
         </ol>
       </div>
     </div>
-    <add-workout />
   </div>
 </template>
 
 <script setup>
-import AddWorkout from './AddWorkout.vue';
-
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 
