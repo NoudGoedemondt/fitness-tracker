@@ -2,8 +2,12 @@
   <li class="day" :class="{ selected: isSelected }">
     <p>{{ label }}</p>
     <ul>
-      <li class="event" v-for="(workout, index) in workoutsOnDay" :key="index">
-        {{ workout.workoutName }}
+      <li
+        class="event"
+        v-for="(workout, index) in routineNamesOnDay"
+        :key="index"
+      >
+        {{ workout }}
       </li>
     </ul>
   </li>
@@ -22,9 +26,19 @@ const label = computed(() => dayjs(props.day).format('D'));
 
 const isSelected = computed(() => props.day === store.state.log.activeDate);
 
-const workoutsOnDay = computed(() =>
-  store.getters['log/getWorkoutsByDate'](props.day)
-);
+const routineNamesOnDay = computed(() => {
+  const logsList = store.getters['log/getLogsByDate'](props.day);
+
+  if (!logsList.length) {
+    return;
+  }
+
+  const routineNamesList = logsList.map((log) =>
+    store.getters['routine/getRoutineNameById'](log.routineId)
+  );
+
+  return routineNamesList;
+});
 </script>
 
 <style scoped>

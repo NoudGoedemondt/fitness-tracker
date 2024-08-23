@@ -1,7 +1,7 @@
 <template>
   <div class="add-wo">
-    <button @click="showModal = !showModal">Add Workout</button>
-    <add-workout-modal v-model="showModal" />
+    <button @click="showWorkoutModal = !showWorkoutModal">Add Workout</button>
+    <add-workout-modal v-model="showWorkoutModal" />
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import AddWorkoutModal from './AddWorkoutModal.vue';
 
 import { ref } from 'vue';
 
-const showModal = ref(false);
+const showWorkoutModal = ref(false);
 </script>
 
 <style scoped>

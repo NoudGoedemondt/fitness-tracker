@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" class="modal-overlay" @click.self="close">
+  <div v-if="visible" class="modal-overlay">
     <div class="modal-content">
       <header class="modal-header">
         <slot name="header">
@@ -66,7 +66,7 @@ watch(
   background-color: white;
   padding: 1.5rem;
   border-radius: 8px;
-  max-width: 500px;
+  max-width: 960px;
   width: 100%;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }

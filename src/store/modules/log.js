@@ -4,8 +4,7 @@ const state = () => ({
     // Week 1
     {
       logId: 'log1',
-      workoutId: 'wo1',
-      workoutName: 'Push',
+      routineId: 'wo1',
       date: '2024-8-5',
       exercises: [
         {
@@ -44,8 +43,7 @@ const state = () => ({
     },
     {
       logId: 'log2',
-      workoutId: 'wo2',
-      workoutName: 'Pull',
+      routineId: 'wo2',
       date: '2024-8-7',
       exercises: [
         {
@@ -84,8 +82,7 @@ const state = () => ({
     },
     {
       logId: 'log3',
-      workoutId: 'wo3',
-      workoutName: 'Legs',
+      routineId: 'wo3',
       date: '2024-8-9',
       exercises: [
         {
@@ -126,8 +123,7 @@ const state = () => ({
     // Week 2
     {
       logId: 'log4',
-      workoutId: 'wo1',
-      workoutName: 'Push',
+      routineId: 'wo1',
       date: '2024-8-12',
       exercises: [
         {
@@ -166,8 +162,7 @@ const state = () => ({
     },
     {
       logId: 'log5',
-      workoutId: 'wo2',
-      workoutName: 'Pull',
+      routineId: 'wo2',
       date: '2024-8-14',
       exercises: [
         {
@@ -206,8 +201,7 @@ const state = () => ({
     },
     {
       logId: 'log6',
-      workoutId: 'wo3',
-      workoutName: 'Legs',
+      routineId: 'wo3',
       date: '2024-8-16',
       exercises: [
         {
@@ -248,8 +242,7 @@ const state = () => ({
     // Week 3
     {
       logId: 'log7',
-      workoutId: 'wo1',
-      workoutName: 'Push',
+      routineId: 'wo1',
       date: '2024-8-19',
       exercises: [
         {
@@ -288,8 +281,7 @@ const state = () => ({
     },
     {
       logId: 'log8',
-      workoutId: 'wo2',
-      workoutName: 'Pull',
+      routineId: 'wo2',
       date: '2024-8-21',
       exercises: [
         {
@@ -328,8 +320,7 @@ const state = () => ({
     },
     {
       logId: 'log9',
-      workoutId: 'wo3',
-      workoutName: 'Legs',
+      routineId: 'wo3',
       date: '2024-8-23',
       exercises: [
         {
@@ -370,10 +361,10 @@ const state = () => ({
 });
 
 const getters = {
-  getWorkoutsByDate: (state) => (date) => {
+  getLogsByDate: (state) => (date) => {
     return state.logs.filter((log) => log.date === date);
   },
-  getWorkoutsByActiveDate: (state) => {
+  getLogsByActiveDate: (state) => {
     return state.logs.filter((log) => log.date === state.activeDate);
   },
 };

@@ -1,8 +1,8 @@
 <template>
   <div class="view-wo">
     <div
-      v-for="(workout, index) in workoutsOnDay"
-      :key="index"
+      v-for="workout in workoutsOnDay"
+      :key="workout.logId"
       class="workout-block"
     >
       <h3>{{ workout.workoutName }}</h3>
@@ -28,9 +28,7 @@ import { useStore } from 'vuex';
 
 const store = useStore();
 
-const workoutsOnDay = computed(
-  () => store.getters['log/getWorkoutsByActiveDate']
-);
+const workoutsOnDay = computed(() => store.getters['log/getLogsByActiveDate']);
 </script>
 
 <style scoped>

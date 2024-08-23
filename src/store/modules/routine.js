@@ -23,7 +23,15 @@ const state = () => ({
   ],
 });
 
+const getters = {
+  getRoutineNameById: (state) => (id) => {
+    const routine = state.routines.find((routine) => routine.id === id);
+    return routine ? routine.name : undefined;
+  },
+};
+
 export default {
   namespaced: true,
   state,
+  getters,
 };
