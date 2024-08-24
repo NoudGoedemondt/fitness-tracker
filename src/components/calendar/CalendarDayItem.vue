@@ -30,14 +30,15 @@ const routineNamesOnDay = computed(() => {
   const logsList = store.getters['log/getLogsByDate'](props.day);
 
   if (!logsList.length) {
-    return;
+    return [];
   }
 
-  const routineNamesList = logsList.map((log) =>
-    store.getters['routine/getRoutineNameById'](log.routineId)
-  );
+  const routineNames = logsList.map((log) => {
+    const routine = store.getters['routine/getRoutineById'](log.routineId);
+    return routine ? routine.name : 'Unknown Routine';
+  });
 
-  return routineNamesList;
+  return routineNames;
 });
 </script>
 

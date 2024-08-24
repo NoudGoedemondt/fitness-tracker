@@ -24,10 +24,8 @@ const state = () => ({
 });
 
 const getters = {
-  getRoutineNameById: (state) => (id) => {
-    const routine = state.routines.find((routine) => routine.id === id);
-    return routine ? routine.name : undefined;
-  },
+  getRoutineById: (state) => (id) =>
+    state.routines.find((routine) => routine.id === id),
 };
 
 export default {
