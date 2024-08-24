@@ -29,14 +29,12 @@ const isSelected = computed(() => props.day === store.state.log.activeDate);
 const routineNamesOnDay = computed(() => {
   const logsList = store.getters['log/getLogsByDate'](props.day);
 
-  if (!logsList.length) {
-    return [];
-  }
-
-  const routineNames = logsList.map((log) => {
-    const routine = store.getters['routine/getRoutineById'](log.routineId);
-    return routine ? routine.name : 'Unknown Routine';
-  });
+  const routineNames = logsList.length
+    ? logsList.map((log) => {
+        const routine = store.getters['routine/getRoutineById'](log.routineId);
+        return routine ? routine.name : 'Unknown Routine';
+      })
+    : [];
 
   return routineNames;
 });
