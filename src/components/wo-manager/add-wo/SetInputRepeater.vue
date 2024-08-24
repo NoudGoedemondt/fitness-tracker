@@ -40,10 +40,11 @@ b {
   margin-right: 10px;
 }
 
-input[type='number'] {
+input {
   flex: 1;
   padding: 0.5rem;
   margin-right: 10px;
+  min-width: 0;
 }
 
 button {

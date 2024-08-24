@@ -1,16 +1,19 @@
 <template>
   <div class="add-wo">
-    <button @click="showWorkoutModal = !showWorkoutModal">Add Workout</button>
-    <add-workout-modal v-model="showWorkoutModal" />
+    <!-- <button @click="showWorkoutModal = !showWorkoutModal">Add Workout</button>
+    <add-workout-modal v-model="showWorkoutModal" /> -->
+
+    <add-workout-form />
   </div>
 </template>
 
 <script setup>
-import AddWorkoutModal from './AddWorkoutModal.vue';
+//import AddWorkoutModal from './AddWorkoutModal.vue';
+import AddWorkoutForm from './AddWorkoutForm.vue';
 
-import { ref } from 'vue';
+// import { ref } from 'vue';
 
-const showWorkoutModal = ref(false);
+// const showWorkoutModal = ref(false);
 </script>
 
 <style scoped>
