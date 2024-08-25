@@ -18,10 +18,10 @@
 <script setup>
 import { ref } from 'vue';
 
-const inputs = ref([{ reps: '', weight: '' }]);
+const inputs = ref([{ weight: '', reps: '' }]);
 
 const addInput = () => {
-  inputs.value.push({ reps: '', weight: '' });
+  inputs.value.push({ weight: '', reps: '' });
 };
 
 const removeInput = (index) => {
