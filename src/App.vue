@@ -5,7 +5,6 @@
 </template>
 
 <script setup>
-//testing github
 import CalendarBase from './components/calendar/CalendarBase.vue';
 import AddWorkout from './components/wo-manager/add-wo/AddWorkout.vue';
 import ViewWorkout from './components/wo-manager/ViewWorkout.vue';
