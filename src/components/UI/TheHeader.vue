@@ -1,23 +1,18 @@
 <template>
   <header>
-    <div class="container">
-      <div class="logo">
-        <a href="">Fitness Tracker</a>
-      </div>
-      <nav class="main-nav">
-        <ul>
-          <li>
-            <a href="">nav link 1</a>
-          </li>
-          <li>
-            <a href="">nav link 2</a>
-          </li>
-          <li>
-            <a href="">nav link 3</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <nav class="main-nav">
+      <ul>
+        <li>
+          <a href="">nav link 1</a>
+        </li>
+        <li>
+          <a href="">nav link 2</a>
+        </li>
+        <li>
+          <a href="">nav link 3</a>
+        </li>
+      </ul>
+    </nav>
   </header>
 </template>
 
@@ -29,25 +24,11 @@ export default {
 
 <style scoped>
 header {
-  width: 100vw;
-  background-color: #1a237e;
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-}
-
-.container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  margin: 0 1rem;
-}
-
-.logo a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
+  justify-content: center;
+  width: 100vw;
+  border-bottom: 1px solid var(--grey-300);
 }
 
 .main-nav ul {
@@ -62,16 +43,14 @@ header {
 }
 
 .main-nav a {
-  color: #fff;
+  color: #000;
   text-decoration: none;
   padding: 0.5rem;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .main-nav a:hover,
 .main-nav a:active {
-  background-color: #f1a80a;
-  color: #1a237e;
-  border-radius: 5px;
+  background-color: var(--grey-200);
 }
 </style>
